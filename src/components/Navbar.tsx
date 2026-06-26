@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Rocket, Sparkles } from 'lucide-react';
+import { Menu, X, ShieldAlert } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -15,63 +15,70 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Features', href: '#features' },
-    { name: 'Leaderboard', href: '#leaderboard' },
-    { name: 'Tutorial', href: '#tutorial' },
-    { name: 'Community', href: '#community' },
+    { name: 'Sanctum', href: '#home' },
+    { name: 'Crystals', href: '#features' },
+    { name: 'Archives', href: '#leaderboard' },
+    { name: 'Ascension', href: '#tutorial' },
+    { name: 'Guilds', href: '#community' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
       <div className="mx-auto flex justify-center px-4 pt-4 sm:pt-6">
         <motion.nav
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className={`flex w-full max-w-5xl items-center justify-between rounded-full border border-white/10 bg-black/40 px-4 md:px-8 backdrop-blur-xl transition-all duration-300 ${
-            scrolled ? 'h-14 sm:h-16 py-2 shadow-[0_0_30px_rgba(139,92,246,0.15)] bg-black/60' : 'h-16 sm:h-20 py-4'
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className={`flex w-full max-w-5xl items-center justify-between rounded-none border border-amber-500/10 bg-[#07040f]/60 px-6 sm:px-10 backdrop-blur-xl transition-all duration-300 ${
+            scrolled 
+              ? 'h-14 sm:h-16 shadow-[0_4px_30px_rgba(251,191,36,0.05)] border-amber-500/20 bg-[#07040f]/85' 
+              : 'h-16 sm:h-20'
           }`}
         >
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-violet-600/20 border border-violet-500/30 group-hover:border-violet-400 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition duration-300">
-              <Sparkles className="h-5 w-5 text-violet-400 group-hover:rotate-12 transition duration-300" />
+          {/* Logo mark */}
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="relative flex h-8 w-8 items-center justify-center border border-amber-500/20 rotate-45 group-hover:border-amber-400 group-hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] transition-all duration-500">
+              <div className="-rotate-45">
+                <ShieldAlert className="h-4.5 w-4.5 text-amber-300" />
+              </div>
             </div>
-            <span className="font-display font-black text-lg sm:text-xl tracking-wider bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent group-hover:text-white transition duration-300">
-              FABULA<span className="text-violet-400 font-extrabold">NOVA</span>
+            <span className="font-display font-black text-sm sm:text-base tracking-[0.2em] text-white">
+              FABULA<span className="gold-text-gradient font-black">NOVA</span>
             </span>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation Link */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="relative text-sm font-medium text-zinc-400 hover:text-white transition duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-violet-400 hover:after:w-full after:transition-all after:duration-300"
+                  className="relative font-display text-[10px] tracking-[0.25em] uppercase font-bold text-zinc-400 hover:text-amber-200 transition-all duration-300 group flex flex-col items-center"
                 >
                   {link.name}
+                  {/* Small gold diamond marker under link */}
+                  <span className="absolute bottom-[-10px] w-1.5 h-1.5 rotate-45 bg-amber-400 opacity-0 group-hover:opacity-100 group-hover:bottom-[-6px] transition-all duration-300" />
                 </a>
               </li>
             ))}
           </ul>
 
-          {/* Actions */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Enter Realm Button */}
+          <div className="hidden md:flex items-center">
             <a
               href="#tutorial"
-              className="flex items-center gap-2 rounded-full bg-violet-600 px-6 py-2 text-sm font-bold text-white shadow-[0_0_20px_rgba(139,92,246,0.3)] transition duration-300 hover:bg-violet-500 hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]"
+              className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-display text-[10px] tracking-[0.2em] uppercase font-bold text-amber-200 border border-amber-500/30 hover:border-amber-400/80 transition-all duration-300 group"
             >
-              <Rocket className="h-4 w-4" />
-              Play Now
+              {/* Inner glowing hover effect */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              Enter Realm
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Diamond Toggler */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-xl md:hidden transition hover:bg-white/10"
+            className="flex h-10 w-10 items-center justify-center border border-amber-500/10 bg-white/5 text-amber-300 md:hidden transition hover:border-amber-400/40"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -82,31 +89,30 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden w-[calc(100%-2rem)] mx-auto mt-2 border border-white/10 bg-cosmic-dark/95 backdrop-blur-2xl rounded-3xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden w-[calc(100%-2rem)] mx-auto mt-2 border border-amber-500/10 bg-[#07040f]/95 backdrop-blur-2xl rounded-none overflow-hidden shadow-2xl"
           >
-            <ul className="flex flex-col p-6 gap-4">
+            <ul className="flex flex-col p-6 gap-4 text-center">
               {navLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="border-b border-amber-500/5 last:border-none pb-2 last:pb-0">
                   <a
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-2 text-base font-semibold text-zinc-300 hover:text-white transition"
+                    className="block font-display text-xs tracking-wider uppercase font-bold text-zinc-300 hover:text-amber-200 transition"
                   >
                     {link.name}
                   </a>
                 </li>
               ))}
-              <li className="pt-4 border-t border-white/10">
+              <li className="pt-4">
                 <a
                   href="#tutorial"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-2xl bg-violet-600 py-3 text-base font-bold text-white shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+                  className="block w-full py-3 text-center font-display text-xs tracking-widest uppercase font-bold text-amber-300 border border-amber-500/30"
                 >
-                  <Rocket className="h-5 w-5" />
-                  Play Now
+                  Enter Realm
                 </a>
               </li>
             </ul>

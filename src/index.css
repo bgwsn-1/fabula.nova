@@ -9,108 +9,103 @@
   
   html {
     scroll-behavior: smooth;
-    background-color: #04010a;
+    background-color: #020106;
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #04010a;
-    color: #f3f4f6;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #020106;
+    color: #d1d5db;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Cinzel', serif;
   }
 }
 
 @layer utilities {
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #04010a;
+    background: #020106;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e1b4b;
-    border-radius: 4px;
+    background: #271c3f;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #312e81;
+    background: #493375;
   }
 
-  /* Glassmorphism utility */
-  .glass-card {
-    background: rgba(10, 5, 24, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Gold Glassmorphism utility */
+  .gold-glass {
+    background: rgba(12, 8, 24, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(251, 191, 36, 0.08);
   }
 
-  .glass-card-hover {
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  .gold-glass-hover {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
-  .glass-card-hover:hover {
-    background: rgba(139, 92, 246, 0.05);
-    border-color: rgba(139, 92, 246, 0.3);
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+  .gold-glass-hover:hover {
+    background: rgba(251, 191, 36, 0.03);
+    border-color: rgba(251, 191, 36, 0.25);
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.08);
   }
 
-  /* Animated text gradient */
-  .animated-gradient-text {
+  /* Silver Glassmorphism */
+  .silver-glass {
+    background: rgba(8, 8, 12, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .silver-glass-hover:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Divine Gold text gradient */
+  .gold-text-gradient {
     background: linear-gradient(
-      to right,
-      #a78bfa,
-      #ec4899,
-      #38bdf8,
-      #a78bfa
+      135deg,
+      #ffe082 0%,
+      #fbbf24 50%,
+      #d97706 100%
     );
-    background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: text-shine 6s linear infinite;
   }
 
-  /* Grid background */
-  .grid-bg {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
+  /* Aetherial Blue text gradient */
+  .aether-text-gradient {
+    background: linear-gradient(
+      135deg,
+      #bae6fd 0%,
+      #38bdf8 50%,
+      #0369a1 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  /* Stars animations */
-  .stars-bg {
-    background-image: radial-gradient(white 1px, transparent 1px);
-    background-size: 80px 80px;
+  /* Custom grid lines */
+  .cosmic-grid {
+    background-image: linear-gradient(rgba(251, 191, 36, 0.015) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(251, 191, 36, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 
-  /* Cosmic glows */
-  .nebula-glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.15;
-    pointer-events: none;
-    z-index: 0;
+  /* Star items with glowing pulse */
+  .star-field {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-}
-
-@keyframes text-shine {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 300% center;
-  }
-}
-
-/* Star field elements */
-.star-item {
-  position: absolute;
-  background-color: #fff;
-  border-radius: 50%;
-  animation: pulse-star 4s infinite ease-in-out;
-}
-
-@keyframes pulse-star {
-  0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
 }
