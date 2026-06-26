@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    background-color: #04010a;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #04010a;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #04010a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e1b4b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #312e81;
+  }
+
+  /* Glassmorphism utility */
+  .glass-card {
+    background: rgba(10, 5, 24, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .glass-card-hover:hover {
+    background: rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+  }
+
+  /* Animated text gradient */
+  .animated-gradient-text {
+    background: linear-gradient(
+      to right,
+      #a78bfa,
+      #ec4899,
+      #38bdf8,
+      #a78bfa
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-shine 6s linear infinite;
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Stars animations */
+  .stars-bg {
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /* Cosmic glows */
+  .nebula-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@keyframes text-shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* Star field elements */
+.star-item {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: pulse-star 4s infinite ease-in-out;
+}
+
+@keyframes pulse-star {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
