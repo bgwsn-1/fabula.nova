@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Activity, ShieldAlert, Users, Award } from 'lucide-react';
+import { Activity, ShieldCheck, Users, Globe, Download, MessageSquare } from 'lucide-react';
 
 export default function Hero() {
   const containerVariants = {
@@ -7,195 +7,168 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        delayChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 80 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 100 } },
   };
 
-  const realmStats = [
-    { label: 'Realm Souls', value: '412 / 1024', icon: Users, color: 'text-amber-300' },
-    { label: 'Ethereal Latency', value: '28ms', icon: Activity, color: 'text-sky-300' },
-    { label: 'Client Version', value: 'v1.4.2', icon: Award, color: 'text-purple-300' },
-    { label: 'Gatekeepers', value: 'Active', icon: ShieldAlert, color: 'text-emerald-300' },
+  const stats = [
+    { label: 'Souls Online', value: '412', icon: Users, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+    { label: 'Active Worlds', value: '2,905', icon: Globe, color: 'text-sky-400', bg: 'bg-sky-500/10' },
+    { label: 'Realm Ping', value: '28ms', icon: Activity, color: 'text-amber-400', bg: 'bg-amber-500/10' },
+    { label: 'Stability', value: '99.9%', icon: ShieldCheck, color: 'text-purple-400', bg: 'bg-purple-500/10' },
   ];
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16">
-      {/* Background starlight decorations */}
+      {/* Background decorations */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#020106]"></div>
-        <div className="absolute inset-0 cosmic-grid opacity-30"></div>
-        <div className="absolute inset-0 star-field opacity-20"></div>
+        <div className="absolute inset-0 bg-[#060813]"></div>
+        <div className="absolute inset-0 sandbox-grid opacity-30"></div>
+        <div className="absolute inset-0 sandbox-stars opacity-20"></div>
 
-        {/* Soft glowing ambient spots */}
-        <div className="absolute top-[10%] left-[20%] w-[450px] h-[450px] rounded-full bg-amber-500/5 filter blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-[10%] right-[20%] w-[450px] h-[450px] rounded-full bg-violet-600/5 filter blur-[100px] pointer-events-none" />
+        {/* Ambient color bubbles */}
+        <div className="absolute top-[10%] left-[20%] w-[350px] h-[350px] rounded-full bg-emerald-500/5 filter blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] rounded-full bg-sky-500/5 filter blur-[120px] pointer-events-none" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+      <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           
-          {/* Text and Copywriting */}
+          {/* Main Copywriting */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="lg:col-span-7 text-left space-y-6"
           >
-            {/* Pulsing Status Dot */}
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-none border border-amber-500/20 bg-amber-500/5 px-4 py-1.5 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            {/* Status dot */}
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-1.5 backdrop-blur-md">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="font-display text-[9px] sm:text-[10px] font-bold text-amber-300 uppercase tracking-[0.25em]">
-                Realm Connected • 412 Souls Online
+              <span className="font-display text-xs font-bold text-emerald-400 uppercase tracking-wide">
+                Server Online • 412 Players
               </span>
             </motion.div>
 
-            {/* Sub-eyebrow */}
+            {/* Eyebrow */}
             <motion.div variants={itemVariants}>
-              <span className="font-display text-xs font-bold uppercase tracking-[0.3em] text-zinc-500">
-                Re-Crystallize Your World
+              <span className="font-display text-sm font-bold uppercase tracking-widest text-sky-400">
+                FabulaNova Private Server
               </span>
             </motion.div>
 
-            {/* Title */}
+            {/* Playful bold Title */}
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-wider text-white leading-[1.1]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-wide text-white leading-tight"
             >
-              The Legend of <br />
-              <span className="gold-text-gradient font-black">FABULANOVA</span>
+              The Ultimate <br />
+              <span className="gem-text-gradient font-black">Sandbox</span> Universe
             </motion.h1>
 
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed font-medium"
+              className="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed font-semibold"
             >
-              Step through the threshold of the crystal chamber. A custom sandbox universe of Growtopia built with starlight economies, automated dungeon raids, and secure peer architectures.
+              Step into FabulaNova, a retro-inspired 2D sandboxed private server. Trade valuable gems, build massive worlds, conquer boss raids, and play with friends on any device!
             </motion.p>
 
             {/* CTAs */}
             <motion.div 
               variants={itemVariants}
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-2"
             >
               <a
                 href="#tutorial"
-                className="font-display text-xs tracking-widest uppercase font-bold text-[#05010a] bg-gradient-to-r from-amber-200 via-amber-300 to-amber-500 px-8 py-4 shadow-[0_0_30px_rgba(251,191,36,0.25)] hover:shadow-[0_0_40px_rgba(251,191,36,0.45)] hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 px-8 py-4 font-display text-xs tracking-wider uppercase font-bold text-black shadow-[0_5px_20px_rgba(52,211,153,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_25px_rgba(52,211,153,0.5)]"
               >
-                Ascend to Client
+                <Download className="h-4.5 w-4.5" />
+                Download App
               </a>
               <a
                 href="https://discord.gg/fabulanova"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-display text-xs tracking-widest uppercase font-bold text-amber-200 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/5 px-8 py-4 transition-all duration-300"
+                className="flex items-center gap-2 rounded-full border-2 border-white/10 bg-white/5 px-8 py-4 font-display text-xs tracking-wider uppercase font-bold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20"
               >
-                Join Sanctuary
+                <MessageSquare className="h-4.5 w-4.5 text-sky-400" />
+                Join Discord
               </a>
             </motion.div>
           </motion.div>
 
-          {/* Glowing Crystal SVG Orb & Runes */}
+          {/* Gently Bouncing Pixel Grass Block SVG */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, type: 'spring' }}
-            className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[350px]"
+            transition={{ duration: 0.8, type: 'spring' }}
+            className="lg:col-span-5 relative flex flex-col items-center justify-center min-h-[300px]"
           >
-            {/* Spinning Golden Orbits */}
-            <div className="absolute h-[320px] w-[320px] sm:h-[420px] sm:w-[420px] rounded-full border border-amber-500/10 animate-orbit-clockwise" />
-            <div className="absolute h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] rounded-full border border-dashed border-zinc-500/10 animate-orbit-counter" />
-            
-            {/* Geometric star nodes */}
-            <div className="absolute top-[10%] left-[10%] w-2.5 h-2.5 rotate-45 border border-amber-500/30 bg-amber-400/20" />
-            <div className="absolute bottom-[10%] right-[10%] w-2.5 h-2.5 rotate-45 border border-amber-500/30 bg-amber-400/20" />
-            <div className="absolute top-[40%] right-[5%] w-2 h-2 rotate-45 border border-zinc-500/30" />
+            {/* Soft shadow that expands/contracts under the bouncing block */}
+            <div className="absolute bottom-[20px] w-32 h-4 rounded-full bg-black/40 blur-md animate-[pulse_2s_infinite]" />
 
-            {/* Pulsing Crystal Element */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative z-10 w-full max-w-[240px] sm:max-w-[300px] aspect-square flex items-center justify-center"
-            >
-              {/* Mythical Final Fantasy Style Crystal SVG */}
-              <svg className="w-full h-full text-amber-200 drop-shadow-[0_0_35px_rgba(251,191,36,0.35)] hover:text-amber-100 hover:drop-shadow-[0_0_50px_rgba(251,191,36,0.55)] transition-all duration-700" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Crystal Facets */}
-                <path d="M50 0L85 35L85 85L50 120L15 85L15 35L50 0Z" fill="url(#crystal-back)" opacity="0.3"/>
-                <path d="M50 0L85 35L50 60L50 0Z" fill="url(#facet-1)"/>
-                <path d="M50 0L15 35L50 60L50 0Z" fill="url(#facet-2)"/>
-                <path d="M50 120L85 85L50 60L50 120Z" fill="url(#facet-3)"/>
-                <path d="M50 120L15 85L50 60L50 120Z" fill="url(#facet-4)"/>
-                <path d="M15 35L50 60L15 85L15 35Z" fill="url(#facet-5)"/>
-                <path d="M85 35L50 60L85 85L85 35Z" fill="url(#facet-6)"/>
+            {/* Floating Pixel Block Wrapper */}
+            <div className="animate-bounce-slow relative z-10 w-full max-w-[200px] sm:max-w-[240px] aspect-square flex items-center justify-center">
+              
+              {/* Detailed custom SVG of a pixelated Grass/Dirt block */}
+              <svg className="w-full h-full drop-shadow-[0_15px_30px_rgba(16,185,129,0.3)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* 3D Isometric Dirt Block Body */}
+                <path d="M50 20L85 37.5L85 75L50 92.5L15 75L15 37.5L50 20Z" fill="#78350f" />
                 
-                {/* Highlights */}
-                <path d="M50 0L52 60L50 120L48 60L50 0Z" fill="#ffffff" opacity="0.4"/>
-                <path d="M15 35L50 60L85 35" stroke="#ffffff" strokeWidth="0.5" opacity="0.3"/>
-                <path d="M15 85L50 60L85 85" stroke="#ffffff" strokeWidth="0.5" opacity="0.3"/>
+                {/* Isometric Shading details (Left dark dirt side) */}
+                <path d="M15 37.5L50 55L50 92.5L15 75L15 37.5Z" fill="#451a03" />
                 
-                <defs>
-                  <linearGradient id="crystal-back" x1="50" y1="0" x2="50" y2="120" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#fbbf24"/>
-                    <stop offset="1" stopColor="#7c2d12"/>
-                  </linearGradient>
-                  <linearGradient id="facet-1" x1="50" y1="0" x2="85" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#ffe082"/>
-                    <stop offset="1" stopColor="#d97706"/>
-                  </linearGradient>
-                  <linearGradient id="facet-2" x1="50" y1="0" x2="15" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#fff8e1"/>
-                    <stop offset="1" stopColor="#b45309"/>
-                  </linearGradient>
-                  <linearGradient id="facet-3" x1="50" y1="120" x2="85" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#b45309"/>
-                    <stop offset="1" stopColor="#78350f"/>
-                  </linearGradient>
-                  <linearGradient id="facet-4" x1="50" y1="120" x2="15" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#92400e"/>
-                    <stop offset="1" stopColor="#451a03"/>
-                  </linearGradient>
-                  <linearGradient id="facet-5" x1="15" y1="60" x2="50" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#f59e0b"/>
-                    <stop offset="1" stopColor="#78350f"/>
-                  </linearGradient>
-                  <linearGradient id="facet-6" x1="85" y1="60" x2="50" y2="60" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#fbbf24"/>
-                    <stop offset="1" stopColor="#92400e"/>
-                  </linearGradient>
-                </defs>
+                {/* Top Grass Cap */}
+                <path d="M50 20L85 37.5L50 55L15 37.5L50 20Z" fill="#10b981" />
+                
+                {/* Left/Right grass drips isometric */}
+                <path d="M15 37.5L30 45L40 40L50 55L60 48L75 52L85 37.5L50 55L15 37.5Z" fill="#047857" />
+                <path d="M15 37.5L25 42.5L32 39L40 46L46 41L50 55L15 37.5Z" fill="#065f46" />
+                <path d="M85 37.5L78 44L72 40L64 47L58 41L50 55L85 37.5Z" fill="#065f46" />
+                
+                {/* Pixelated dots on Dirt layers */}
+                <rect x="25" y="60" width="4" height="4" fill="#a16207" />
+                <rect x="35" y="70" width="4" height="4" fill="#b45309" />
+                <rect x="60" y="65" width="4" height="4" fill="#a16207" />
+                <rect x="70" y="58" width="4" height="4" fill="#b45309" />
+                <rect x="30" y="50" width="4" height="4" fill="#065f46" />
+                <rect x="68" y="48" width="4" height="4" fill="#065f46" />
+                
+                {/* Shiny highlight lines */}
+                <path d="M50 22L80 37M50 22L20 37" stroke="#34d399" strokeWidth="2" strokeLinecap="round" />
               </svg>
-            </motion.div>
+            </div>
           </motion.div>
 
         </div>
 
-        {/* Ethereal Realm Gauges */}
+        {/* Dashboard statistics */}
         <motion.div 
-          initial={{ opacity: 0, y: 35 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-24 p-8 rounded-none border border-amber-500/10 bg-[#080511]/70 backdrop-blur-xl shadow-2xl"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 p-6 sm:p-8 rounded-[32px] border border-white/5 bg-[#0e1127]/60 backdrop-blur-xl shadow-2xl"
         >
-          {realmStats.map((stat, idx) => {
+          {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
-              <div key={idx} className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left p-4 hover:bg-white/[0.01] transition-all duration-300">
-                <div className={`flex h-11 w-11 items-center justify-center rounded-none border border-amber-500/15 bg-amber-500/5 ${stat.color}`}>
+              <div key={idx} className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left p-4 rounded-[24px] hover:bg-white/[0.02] transition-all duration-300">
+                <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${stat.bg} ${stat.color}`}>
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.2em]">{stat.label}</p>
-                  <p className="font-display text-lg font-black text-white mt-0.5">{stat.value}</p>
+                  <p className="text-zinc-500 text-xs font-bold uppercase tracking-wider">{stat.label}</p>
+                  <p className="font-display text-lg sm:text-xl font-black text-white mt-0.5">{stat.value}</p>
                 </div>
               </div>
             );

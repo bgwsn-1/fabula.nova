@@ -1,57 +1,57 @@
 import { motion } from 'framer-motion';
-import { Activity, ShieldAlert, Users, Award, Gem } from 'lucide-react';
+import { Activity, ShieldCheck, Award, Users, MonitorSmartphone } from 'lucide-react';
 
 export default function Features() {
   const list = [
     {
       id: 'I',
-      tag: 'Connectivity',
-      title: 'Crystal of Velocity',
-      desc: 'Optimized reliable UDP protocols utilizing direct ENet architectures. Experience low-latency server connections with zero packet leakage.',
+      tag: 'Connections',
+      title: 'Velocity Engine',
+      desc: 'Optimized reliable UDP protocols utilizing ENet architectures. Experience low-latency server connections with zero packet leakage.',
       icon: Activity,
-      border: 'border-cyan-500/20 hover:border-cyan-400/40',
-      glow: 'bg-cyan-500/5',
-      textGlow: 'text-cyan-300',
+      border: 'border-emerald-500/10 hover:border-emerald-500/30',
+      glow: 'hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] bg-emerald-500/[0.01]',
+      color: 'text-emerald-400',
     },
     {
       id: 'II',
-      tag: 'Genesis',
-      title: 'Crystal of Genesis',
-      desc: 'Unlock server-exclusive starlight crystal items, cosmic accessories, customizable items databases, and beautiful block textures.',
-      icon: Gem,
-      border: 'border-fuchsia-500/20 hover:border-fuchsia-400/40',
-      glow: 'bg-fuchsia-500/5',
-      textGlow: 'text-fuchsia-300',
+      tag: 'Sandbox Crafting',
+      title: 'Genesis Items Database',
+      desc: 'Collect server-exclusive starlight crystal items, custom wings, customizable items databases, and retro block textures.',
+      icon: ShieldCheck,
+      border: 'border-sky-500/10 hover:border-sky-500/30',
+      glow: 'hover:shadow-[0_0_30px_rgba(14,165,233,0.1)] bg-sky-500/[0.01]',
+      color: 'text-sky-400',
     },
     {
       id: 'III',
-      tag: 'Crusade',
-      title: 'Crystal of Crusade',
-      desc: 'Ascend by conquering realm raid dungeons, monthly automated starlight tournaments, and cooperative guild challenges.',
+      tag: 'Quests',
+      title: 'Crusade Boss Raids',
+      desc: 'Fight in automated seasonal boss battles, clear starlight dungeon realms, and ascend the player level ladder.',
       icon: Award,
-      border: 'border-amber-500/20 hover:border-amber-400/40',
-      glow: 'bg-amber-500/5',
-      textGlow: 'text-amber-300',
+      border: 'border-amber-500/10 hover:border-amber-500/30',
+      glow: 'hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] bg-amber-500/[0.01]',
+      color: 'text-amber-400',
     },
     {
       id: 'IV',
-      tag: 'Secured Economy',
-      title: 'Crystal of Commerce',
-      desc: 'Participate in secure marketplace bidding. Fully audited anti-duplication security systems guarantee gem and item values remain stable.',
+      tag: 'Trade Realm',
+      title: 'Diamond Lock Security',
+      desc: 'Engage in secure player-to-player trading channels. Fully audited anti-duplication security protects your items and gem balances.',
       icon: Users,
-      border: 'border-emerald-500/20 hover:border-emerald-400/40',
-      glow: 'bg-emerald-500/5',
-      textGlow: 'text-emerald-300',
+      border: 'border-purple-500/10 hover:border-purple-500/30',
+      glow: 'hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] bg-purple-500/[0.01]',
+      color: 'text-purple-400',
     },
     {
       id: 'V',
-      tag: 'Convergence',
-      title: 'Crystal of Convergence',
-      desc: 'Unified realm connection nodes compiled for Android devices, native Windows systems, and macOS DNS routing setups.',
-      icon: ShieldAlert,
-      border: 'border-purple-500/20 hover:border-purple-400/40',
-      glow: 'bg-purple-500/5',
-      textGlow: 'text-purple-300',
+      tag: 'Multiplatform',
+      title: 'Portal Convergence',
+      desc: 'Switch between devices instantly with optimized application clients for Android (APK), Windows PC, and macOS.',
+      icon: MonitorSmartphone,
+      border: 'border-teal-500/10 hover:border-teal-500/30',
+      glow: 'hover:shadow-[0_0_30px_rgba(20,184,166,0.1)] bg-teal-500/[0.01]',
+      color: 'text-teal-400',
     },
   ];
 
@@ -65,19 +65,18 @@ export default function Features() {
     visible: (idx: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, delay: idx * 0.1, type: 'spring' as const, stiffness: 80 },
+      transition: { duration: 0.5, delay: idx * 0.08, type: 'spring' as const, stiffness: 90 },
     }),
   };
 
   return (
-    <section id="features" className="relative py-24 sm:py-32 overflow-hidden bg-[#020106]">
-      {/* Grid line background */}
-      <div className="absolute inset-0 z-0 bg-[#020106]">
-        <div className="absolute inset-0 cosmic-grid opacity-20"></div>
-        <div className="absolute top-[30%] right-[-100px] w-[400px] h-[400px] rounded-full bg-amber-500/5 filter blur-[120px] pointer-events-none" />
+    <section id="features" className="relative py-24 sm:py-32 overflow-hidden bg-[#060813]">
+      {/* Background decoration */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[20%] left-[-150px] w-[500px] h-[500px] rounded-full bg-emerald-600/5 blur-[120px] pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+      <div className="relative z-10 max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto">
         
         {/* Header */}
         <motion.div
@@ -87,22 +86,21 @@ export default function Features() {
           viewport={{ once: true, margin: '-100px' }}
           className="text-center max-w-3xl mx-auto space-y-4 mb-20"
         >
-          <span className="font-display text-xs uppercase font-bold tracking-[0.4em] text-amber-400">
-            Realm Foundations
+          <span className="font-display text-xs uppercase font-bold tracking-[0.4em] text-emerald-400">
+            Realm Features
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-white">
-            Crystals of <span className="gold-text-gradient font-black">Ascension</span>
+            Blocks of <span className="gem-text-gradient font-black">FabulaNova</span>
           </h2>
           <p className="text-zinc-500 text-sm sm:text-base leading-relaxed font-semibold">
-            Discover the custom features and ENet-optimized infrastructures powering the realm of FabulaNova.
+            Unpack the custom components and optimized structures designed specifically for our player base.
           </p>
         </motion.div>
 
-        {/* Crystals Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+        {/* Features Card List */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((item, idx) => {
             const Icon = item.icon;
-            
             return (
               <motion.article
                 key={item.id}
@@ -111,27 +109,21 @@ export default function Features() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-50px' }}
-                className={`relative flex flex-col justify-between overflow-hidden rounded-none border ${item.border} ${item.glow} p-8 hover:shadow-[0_0_30px_rgba(251,191,36,0.05)] transition-all duration-500`}
+                className={`relative flex flex-col justify-between overflow-hidden rounded-[32px] border ${item.border} ${item.glow} p-8 transition-all duration-400`}
               >
-                {/* Thin gold decorative diamonds on corners */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-500/20" />
-                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-amber-500/20" />
-                <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-amber-500/20" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-amber-500/20" />
-
                 {/* Content */}
                 <div className="space-y-6">
-                  {/* Top Row: Runic ID & Icon */}
+                  {/* Top Header Row */}
                   <div className="flex items-center justify-between">
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-none border border-white/5 bg-white/[0.02] ${item.textGlow}`}>
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-white/5 border border-white/5 ${item.color}`}>
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-display text-sm font-bold text-zinc-600 tracking-wider">
-                      {item.id}
+                    <span className="font-display text-sm font-bold text-zinc-600">
+                      BLOCK {item.id}
                     </span>
                   </div>
 
-                  {/* Body Text */}
+                  {/* Descriptions */}
                   <div className="space-y-2 text-left">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">
                       {item.tag}
@@ -145,10 +137,10 @@ export default function Features() {
                   </div>
                 </div>
 
-                {/* Bottom link decorated with JRPG diamond */}
-                <div className="flex items-center gap-2 pt-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-amber-300 transition duration-300 text-left cursor-pointer">
-                  <div className="w-1.5 h-1.5 rotate-45 bg-amber-500/40" />
-                  <span>Channel Crystal</span>
+                {/* Bottom link decorated with custom circle dot */}
+                <div className="flex items-center gap-2 pt-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-emerald-400 transition duration-300 text-left cursor-pointer">
+                  <span className={`h-2 w-2 rounded-full bg-current ${item.color}`} />
+                  <span>Inspect Realm Block</span>
                 </div>
               </motion.article>
             );
